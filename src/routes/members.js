@@ -60,7 +60,12 @@ router.put('/:id', async (req, res, next) => {
       .eq('id', req.params.id)
       .select()
       .single();
-    if (error) return res.status(404).json({ error: 'Member tidak ditemukan' });
+    if (error) {
+      if (error.code === '23505') {
+        return res.status(409).json({ error: 'Email sudah digunakan oleh member lain' });
+      }
+      return res.status(404).json({ error: 'Member tidak ditemukan' });
+    }
     res.json(data);
   } catch (err) {
     next(err);
