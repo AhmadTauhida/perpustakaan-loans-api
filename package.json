@@ -1,0 +1,17 @@
+{
+  "name": "perpustakaan-loans-api",
+  "version": "1.0.0",
+  "description": "REST API sederhana pencatatan peminjaman buku perpustakaan - Node.js, Express.js, Supabase",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "@supabase/supabase-js": "^2.44.4"
+  }
+}
