@@ -54,9 +54,17 @@ router.get('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const { name, email, phone, address } = req.body;
+    const payload = {};
+    if (name !== undefined) payload.name = name;
+    if (email !== undefined) payload.email = email;
+    if (phone !== undefined) payload.phone = phone;
+    if (address !== undefined) payload.address = address;
+    if (Object.keys(payload).length === 0) {
+      return res.status(400).json({ error: 'Tidak ada field yang diupdate' });
+    }
     const { data, error } = await supabase
       .from('members')
-      .update({ name, email, phone, address })
+      .update(payload)
       .eq('id', req.params.id)
       .select()
       .single();

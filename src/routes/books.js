@@ -54,9 +54,17 @@ router.get('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const { title, author, isbn, stock } = req.body;
+    const payload = {};
+    if (title !== undefined) payload.title = title;
+    if (author !== undefined) payload.author = author;
+    if (isbn !== undefined) payload.isbn = isbn;
+    if (stock !== undefined) payload.stock = stock;
+    if (Object.keys(payload).length === 0) {
+      return res.status(400).json({ error: 'Tidak ada field yang diupdate' });
+    }
     const { data, error } = await supabase
       .from('books')
-      .update({ title, author, isbn, stock })
+      .update(payload)
       .eq('id', req.params.id)
       .select()
       .single();

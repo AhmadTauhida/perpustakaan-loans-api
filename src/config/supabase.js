@@ -10,6 +10,22 @@ if (!url || !key) {
   );
 }
 
-const supabase = createClient(url, key);
+// Jangan throw saat import agar endpoint non-DB (/ dan /health) tetap jalan
+// di Vercel walau env lupa di-set. Route DB akan mendapat error 503 yang jelas.
+let supabase;
+if (!url || !key) {
+  const err = new Error('Supabase belum dikonfigurasi (SUPABASE_URL / key kosong)');
+  err.status = 503;
+  supabase = new Proxy(
+    {},
+    {
+      get() {
+        throw err;
+      },
+    }
+  );
+} else {
+  supabase = createClient(url, key);
+}
 
 module.exports = supabase;

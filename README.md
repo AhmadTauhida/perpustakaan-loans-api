@@ -148,7 +148,7 @@ Setup DB (sekali saja):
 
 ## Deployment Vercel
 
-- **Base URL:** `https://perpustakaan-loans-api.vercel.app` <!-- TODO: ganti dengan URL asli setelah deploy -->
+- **Base URL:** `https://perpustakaan-loans-api.vercel.app`
 - Cara deploy: import repo GitHub di Vercel > set Env `SUPABASE_URL`, `SUPABASE_ANON_KEY` (dan `SUPABASE_SERVICE_ROLE_KEY` jika ada) > Deploy.
 - File penting: `api/index.js` (entry serverless), `vercel.json` (rewrite ke `/api`).
 
