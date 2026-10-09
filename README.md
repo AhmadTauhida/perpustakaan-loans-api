@@ -19,7 +19,7 @@ Fitur:
 
 **members**
 
-| kolom      | tipe        | ket              |
+| kolom      | tipe        | keterangan       |
 | ---------- | ----------- | ---------------- |
 | id         | uuid PK     | default `gen_random_uuid()` |
 | name       | text        | NOT NULL         |
@@ -30,7 +30,7 @@ Fitur:
 
 **books**
 
-| kolom      | tipe        | ket              |
+| kolom      | tipe        | keterangan       |
 | ---------- | ----------- | ---------------- |
 | id         | uuid PK     | default `gen_random_uuid()` |
 | title      | text        | NOT NULL         |
@@ -41,7 +41,7 @@ Fitur:
 
 **loans**
 
-| kolom       | tipe | ket |
+| kolom       | tipe | keterangan |
 | ----------- | ---- | --- |
 | id          | uuid PK | default `gen_random_uuid()` |
 | member_id   | uuid FK → `members(id)` ON DELETE CASCADE | NOT NULL |
