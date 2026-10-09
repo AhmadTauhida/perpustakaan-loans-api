@@ -16,9 +16,15 @@ router.post('/', async (req, res, next) => {
       return res.status(400).json({ error: `status harus salah satu: ${VALID_STATUS.join(', ')}` });
     }
 
+    const payload = { member_id, book_id };
+    if (loan_date !== undefined) payload.loan_date = loan_date;
+    if (due_date !== undefined) payload.due_date = due_date;
+    if (return_date !== undefined) payload.return_date = return_date;
+    if (status !== undefined) payload.status = status;
+
     const { data, error } = await supabase
       .from('loans')
-      .insert([{ member_id, book_id, loan_date, due_date, return_date, status }])
+      .insert([payload])
       .select()
       .single();
     if (error) throw error;
