@@ -1,11 +1,11 @@
 # Perpustakaan Loans API
 
 REST API sederhana untuk pencatatan peminjaman buku perpustakaan.
-Responsi Praktikum PPB — Stack: **Node.js + Express.js + Supabase**, deploy ke **Vercel**.
+Stack: **Node.js + Express.js + Supabase**, deploy ke **Vercel**.
 
 ## Deskripsi & Tujuan
 
-Layanan backend untuk mencatat siapa meminjam buku apa, kapan, dan statusnya.
+Proyek ini berupa layanan backend untuk mencatat siapa meminjam buku apa, kapan, dan statusnya. Proyek dibuat untuk memenuhi tugas praktikum Pemrograman Perangkat Bergerak Modul 1.
 Fitur:
 
 - CRUD `members` (anggota)
